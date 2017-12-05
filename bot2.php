@@ -45,7 +45,16 @@ if (strpos($_msg, 'สอน[') !== false) {
     $arrPostData['messages'][0]['type'] = "text";
     $arrPostData['messages'][0]['text'] = 'ขอบคุณที่สอน Dippy งับบบบบ';
   }
-$lineconnect == "1";
+$channel = curl_init();
+curl_setopt($channel, CURLOPT_URL,$strUrl);
+curl_setopt($channel, CURLOPT_HEADER, false);
+curl_setopt($channel, CURLOPT_POST, true);
+curl_setopt($channel, CURLOPT_HTTPHEADER, $arrHeader);
+curl_setopt($channel, CURLOPT_POSTFIELDS, json_encode($arrPostData));
+curl_setopt($channel, CURLOPT_RETURNTRANSFER,true);
+curl_setopt($channel, CURLOPT_SSL_VERIFYPEER, false);
+$result = curl_exec($channel);
+curl_close ($channel);
 }else{
   if($isData >0){
    foreach($data as $rec){
@@ -60,8 +69,6 @@ $lineconnect == "1";
     $arrPostData['messages'][0]['type'] = "text";
     $arrPostData['messages'][0]['text'] = 'ก๊อกๆๆ พี่ๆๆ สามารถสอนให้ Dippy ฉลาดได้เพียงพิมพ์ สอน[คำถาม|คำตอบ]';
   }*/
-$lineconnect == "1";
-}
 $channel = curl_init();
 curl_setopt($channel, CURLOPT_URL,$strUrl);
 curl_setopt($channel, CURLOPT_HEADER, false);
@@ -72,4 +79,5 @@ curl_setopt($channel, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($channel, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($channel);
 curl_close ($channel);
+}
 ?>
