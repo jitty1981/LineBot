@@ -1,4 +1,3 @@
-
 <?php
 /*$access_token = '11YiJGeK5sb53ok5XSkcnpTVnGqAmo4JWj6stLwcqw58T6rUnoRumWuTA8nWYf9qppTEn9HOaUT8zCzxYYK2nneZe9hlh0lfpzJp1ALneSEeBJGlFp20tBvAH5dO9rIucDodhRQMiqVGeFpWwl3ZvwdB04t89/1O/w1cDnyilFU=';
 
@@ -67,9 +66,9 @@ $json = file_get_contents('https://api.mlab.com/api/1/databases/dippy/collection
 $data = json_decode($json);
 $isData=sizeof($data);
 
-if (strpos($_msg, 'สอนเป็ด') !== false) {
-  if (strpos($_msg, 'สอนเป็ด') !== false) {
-    $x_tra = str_replace("สอนเป็ด","", $_msg);
+if (strpos($_msg, 'สอนฉัน') !== false) {
+  if (strpos($_msg, 'สอนฉัน') !== false) {
+    $x_tra = str_replace("สอนฉัน","", $_msg);
     $pieces = explode("|", $x_tra);
     $_question=str_replace("[","",$pieces[0]);
     $_answer=str_replace("]","",$pieces[1]);
@@ -92,7 +91,7 @@ if (strpos($_msg, 'สอนเป็ด') !== false) {
     $arrPostData = array();
     $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
     $arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = 'ขอบคุณที่สอนเป็ด';
+    $arrPostData['messages'][0]['text'] = 'ขอบคุณที่สอนฉัน';
   }
 }else{
   if($isData >0){
@@ -106,10 +105,9 @@ if (strpos($_msg, 'สอนเป็ด') !== false) {
     $arrPostData = array();
     $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
     $arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = 'ก๊าบบ คุณสามารถสอนให้ฉลาดได้เพียงพิมพ์: สอนเป็ด[คำถาม|คำตอบ]';
+    $arrPostData['messages'][0]['text'] = 'ก๊อกๆๆ คุณสามารถสอนให้ฉลาดได้เพียงพิมพ์: สอนฉัน[คำถาม|คำตอบ]';
   }
 }
-
 
 $channel = curl_init();
 curl_setopt($channel, CURLOPT_URL,$strUrl);
