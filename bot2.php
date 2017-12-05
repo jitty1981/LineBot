@@ -18,9 +18,9 @@ $json = file_get_contents('https://api.mlab.com/api/1/databases/dippy/collection
 $data = json_decode($json);
 $isData=sizeof($data);
 
-if (strpos($_msg, 'สอน') !== false) {
-  if (strpos($_msg, 'สอน') == "0") {
-    $x_tra = str_replace("สอน","", $_msg);
+if (strpos($_msg, 'สอน[') !== false) {
+  if (strpos($_msg, 'สอน[') == "0") {
+    $x_tra = str_replace("สอน[","", $_msg);
     $pieces = explode("|", $x_tra);
     $_question=str_replace("[","",$pieces[0]);
     $_answer=str_replace("]","",$pieces[1]);
