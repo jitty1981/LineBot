@@ -20,7 +20,7 @@ $isData=sizeof($data);
 
 if (strpos($_msg, 'สอน') !== false)
 {
-  if (strpos($_msg, 'สอน') == "1")
+  if (strpos($_msg, 'สอน') != false)
   {
     $x_tra = str_replace("สอน","", $_msg);
     $pieces = explode("|", $x_tra);
