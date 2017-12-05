@@ -19,7 +19,7 @@ $data = json_decode($json);
 $isData=sizeof($data);
 
 if (strpos($_msg, 'สอน') !== false) {
-  if (strpos($_msg, 'สอน') !== false) {
+  if (strpos($_msg, 'สอน') == "0") {
     $x_tra = str_replace("สอน","", $_msg);
     $pieces = explode("|", $x_tra);
     $_question=str_replace("[","",$pieces[0]);
