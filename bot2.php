@@ -15,7 +15,7 @@ $_msg = $arrJson['events'][0]['message']['text'];
 $api_key="1-PjyZ7-NQLCeuAzcQsD7uCU59T3UScn";
 $url = 'https://api.mlab.com/api/1/databases/dippy/collections/linebot?apiKey='.$api_key.'';
 $json = file_get_contents('https://api.mlab.com/api/1/databases/dippy/collections/linebot?apiKey='.$api_key.'&q={"question":{ "$regex":"'.$_msg.'*,"$options": "i" }"}');
-$json = file_get_contents('https://api.mlab.com/api/1/databases/dippy/collections/linebot?apiKey='.$api_key.'{"question": {"$regex": "Dippy*","$options": "i"}}');
+$json = file_get_contents('https://api.mlab.com/api/1/databases/dippy/collections/linebot?apiKey='.$api_key.'&q={"question": {"$regex": "Dippy*","$options": "i"}}');
 $data = json_decode($json);
 $isData=sizeof($data);
 
